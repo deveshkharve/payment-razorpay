@@ -17,10 +17,9 @@
                 
             }  
             const baseUrl = 'http://localhost:3000'
-                
-                
+
             var options = {
-                "key": "<RAZORPAY_PUBLIC_KEY>",
+                "key": "<RAZORPAY_KEY>",
                 "amount": "50000", /// The amount is shown in currency subunits. Actual amount is ₹599.
                 "name": "Merchant Name",
                 "order_id": orderId, // Pass the order ID if you are using Razorpay Orders.
@@ -38,25 +37,8 @@
                         console.log('we were unable to record your payment, if money has been deducted, do not try again')
                     })
                 },
-                "prefill": {
-                    "name": "Gaurav Kumar",
-                    "email": "test@test.com"
-                },
-                "notes": {
-                    "address": "Hello World"
-                },
-                "theme": {
-                    "color": "#F37254"
-                }
             };
             var rzp1 = new Razorpay(options);
-
-            // document.getElementById('rzp-button1').onclick = function(e){
-            //     // getOrder();
-            //     rzp1.open();
-            //     e.preventDefault();
-            // }
-
         </script>
     </head>
     <body onload="getOrder()">
