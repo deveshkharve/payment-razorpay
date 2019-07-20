@@ -1,0 +1,20 @@
+{
+  "name": "razorpay-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Devesh",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "pg": "^7.10.0",
+    "razorpay": "^2.0.4",
+    "serverless-domain-manager": "^3.2.2"
+  },
+  "devDependencies": {
+    "serverless-offline": "^4.9.4"
+  }
+}

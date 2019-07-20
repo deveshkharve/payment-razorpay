@@ -1,0 +1,76 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: payment-razorpay-service # NOTE: update this with your service name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+# you can overwrite defaults here
+  stage: dev
+  profile: user1
+  region: us-east-1
+
+# you can define service wide environment variables here
+environment:
+   variable1: ""
+   DB_PORT: ""
+   DB_USER: ""
+   DB_DATABASE: ""
+   DB_PASSWORD: ""
+
+# you can add packaging information here
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
+
+# add the serverless plugins required
+plugins:
+  - serverless-offline
+  - serverless-domain-manager
+
+
+functions:
+  createorder:
+    handler: payment.createPayment
+    events:
+      - http:
+          path: payment/create
+          method: post
+
+  handlewebhooks:
+    handler: payment.webhooks
+    events:
+      - http:
+          path: webhook
+          method: post
+          
+  createpayment:
+    handler: payment.createOrder
+
+#    The following are a few example events you can configure
+#    NOTE: Please make sure to change your handler code to work with those events
+#    Check the event documentation for details
+    events:
+      - http:
+          path: order/create
+          method: post

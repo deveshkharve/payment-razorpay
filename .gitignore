@@ -1,0 +1,11 @@
+# package directories
+node_modules
+
+# Serverless directories
+.serverless
+.vscode
+node
+
+# files
+package-lock.json
+*.lock
